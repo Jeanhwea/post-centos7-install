@@ -1,3 +1,7 @@
+#
+timedatectl
+
+# 创建和使用 anaconda 的虚拟环境
 conda create --offline -n tf113
 source activate tf113
 
