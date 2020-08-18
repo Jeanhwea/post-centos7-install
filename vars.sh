@@ -1,1 +1,2 @@
-PACKAGE=~admin/Downloads
+export USERNAME=admin
+export PACKAGES=~admin/Downloads
