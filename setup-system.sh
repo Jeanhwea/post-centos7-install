@@ -1,7 +1,16 @@
 PACKAGE=~admin/Download
 
+cat profile >> /etc/profile
+
 # close firewall
 systemctl disable firewalld
+
+################################################################################
+# java
+################################################################################
+mkdir -p /usr/local/java && cd /usr/local/java
+tar xzvf $PACKAGE/jdk-8u191-linux-x64.tar.gz
+tar xzvf $PACKAGE/apache-maven-3.6.3-bin.tar.gz
 
 ################################################################################
 # docker
