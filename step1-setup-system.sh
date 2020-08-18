@@ -3,7 +3,7 @@ source vars.sh
 cat profile >> /etc/profile
 
 ################################################################################
-# close firewall
+# firewall
 ################################################################################
 systemctl disable firewalld
 
@@ -17,12 +17,13 @@ tar xzvf $PACKAGES/apache-maven-3.6.3-bin.tar.gz
 ################################################################################
 # docker
 ################################################################################
-cd /tmp && tar xzvf $PACKAGES/docker-ce-19.03.7.tar.gz
-
-cd docker-ce-19.03.7 && yum localinstall *.rpm
+cd /tmp && \
+  tar xzvf $PACKAGES/docker-ce-19.03.7.tar.gz && \
+  cd docker-ce-19.03.7 && \
+  yum localinstall *.rpm
 
 cp $PACKAGES/docker-compose /usr/local/bin/docker-compose && \
 chmod +x /usr/local/bin/docker-compose
 
 systemctl enable docker.service
-sudo usermod -G docker admin
+sudo usermod -G docker $USERNAME
