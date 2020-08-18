@@ -1,5 +1,18 @@
 system-config-firewall-tui
 
+
+################################################################################
+# /etc/yum.repos.d/local-yum.repo
+################################################################################
+[local-media]
+name=Local Media
+baseurl=file:///media/cdrom/
+gpgcheck=0
+enabled=1
+
+
+mkdir -p /media/cdrom && mount /dev/cdrom /media/cdrom
+
 yum makecache
 yum install -y binutils compat-libcap1 compat-libstdc++-33 gcc gcc-c++ glibc \
     glibc-devel ksh libgcc libstdc++ libstdc++-devel libaio libaio-devel make \
