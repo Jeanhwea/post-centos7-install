@@ -6,6 +6,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CLASSPATH
 export MAVEN_HOME=/usr/local/java/apache-maven-3.6.3
 export PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
 
+# export PEIZHI_URL=http://172.21.0.10/peizhi
 
 # export CUDA_HOME=/usr/local/cuda
 # export PATH=$CUDA_HOME/bin${PATH:+:${PATH}}
