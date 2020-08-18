@@ -7,7 +7,7 @@ PACKAGES=~admin/Downloads
 mkdir -p /usr/local/java && \
   cd /usr/local/java && \
   tar xzvf $PACKAGES/jdk-8u191-linux-x64.tar.gz && \
-tar xzvf $PACKAGES/apache-maven-3.6.3-bin.tar.gz
+  tar xzvf $PACKAGES/apache-maven-3.6.3-bin.tar.gz
 
 
 ################################################################################
