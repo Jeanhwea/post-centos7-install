@@ -1,4 +1,4 @@
-PACKAGE=~admin/Download
+PACKAGE=~admin/Downloads
 
 cat profile >> /etc/profile
 
