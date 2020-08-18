@@ -23,3 +23,6 @@ cp $PACKAGES/docker-compose /usr/local/bin/docker-compose && \
 
 systemctl enable docker.service
 usermod -G docker $USERNAME
+
+
+# ./Anaconda3-5.2.0-Linux-x86_64.sh -b -p ~/.local/anaconda3
