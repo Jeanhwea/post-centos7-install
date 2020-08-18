@@ -1,4 +1,4 @@
-PACKAGE=~admin/Downloads
+source vars.sh
 
 cat profile >> /etc/profile
 
