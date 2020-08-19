@@ -1,3 +1,12 @@
+# 修改主机名
+hostnamectl set-hostname centos_113.localadmin
+
+HOSTADDR=$(hostname -I | awk '{print $1}')
+HOSTNAME=$(hostname)
+
+echo "$HOSTADDR $HOSTNAME" >> /etc/hosts
+
+
 # 时间和时区相关操作
 timedatectl
 
