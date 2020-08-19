@@ -85,7 +85,7 @@ alias rman='rlwrap rman'
 # 共享内存 cat /proc/sys/kernel/shmall
 # shmmni 缺省 4096 即可，shmmax 最小 536870912, 最大为物理内存减小 1 字节
 # 32G 内存大约需要： 32*1024*1024*1024-1 = 34359738367
-kernel.shmmax = 536870912
+kernel.shmmax = 4294967295
 kernel.shmmni = 4096
 # Linux 的共享内存页大小为 4K，
 # 对于 32G 内存的系统大约需要最大的页数为: 32*1024*1024/4 = 8388608
