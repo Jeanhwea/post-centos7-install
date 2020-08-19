@@ -12,4 +12,4 @@ yum install -y binutils compat-libcap1 compat-libstdc++-33 gcc gcc-c++ glibc \
 yum install -y cmake git zip unzip tmux python3 python3-devel python-devel python \
     rpm-build redhat-rpm-config asciidoc hmaccalc perl-ExtUtils-Embed pesign xmlto \
     audit-libs-devel binutils-devel elfutils-devel elfutils-libelf-devel ncurses-devel \
-    newt-devel numactl-devel pciutils-devel python-devel zlib-devel
+    newt-devel numactl-devel pciutils-devel python-devel zlib-devel readline-devel

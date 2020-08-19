@@ -16,7 +16,7 @@ mkdir -p /usr/local/java && \
 cd /tmp && \
   tar xzvf $PACKAGES/docker-ce-19.03.7.tar.gz && \
   cd docker-ce-19.03.7 && \
-  yum localinstall *.rpm
+  yum localinstall -y *.rpm
 
 cp $PACKAGES/docker-compose /usr/local/bin/docker-compose && \
   chmod +x /usr/local/bin/docker-compose
