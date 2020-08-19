@@ -2,7 +2,7 @@ mkdir -p /media/cdrom && mount /dev/cdrom /media/cdrom && \
   rm /etc/yum.repos.d/* && cp CentOS-Media.repo /etc/yum.repos.d/CentOS-Media.repo
 
 yum makecache && \
-  yum install -y tmux ntp kernel-devel kernel-doc kernel-headers \
+  yum install -y net-tools tmux ntp kernel-devel kernel-doc kernel-headers \
       python* python3* mesa* freeglut* *glew*
 
 yum install -y binutils compat-libcap1 compat-libstdc++-33 gcc gcc-c++ glibc \
