@@ -11,6 +11,9 @@ systemctl disable firewalld
 ################################################################################
 timedatectl set-timezone 'Asia/Shanghai'
 timedatectl set-ntp yes
-ntpq -p
+
+timedatectl
+# ntpq -p
+
 
 # timedatectl set-time "YYYY-MM-DD HH:MM:SS"
