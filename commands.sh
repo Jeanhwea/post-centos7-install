@@ -1,5 +1,5 @@
 # 修改主机名
-hostnamectl set-hostname centos_113.localadmin
+hostnamectl set-hostname c114.localadmin
 
 HOSTADDR=$(hostname -I | awk '{print $1}')
 HOSTNAME=$(hostname)
