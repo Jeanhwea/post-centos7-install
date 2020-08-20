@@ -1,4 +1,5 @@
-cat profile >> /etc/profile
+HERE=`cd $(dirname $0); pwd`
+cat profile.tmpl >> /etc/profile
 
 ################################################################################
 # firewall
