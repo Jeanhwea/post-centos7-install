@@ -39,3 +39,4 @@ cd /tmp && \
 # conda
 ################################################################################
 # ./Anaconda3-5.2.0-Linux-x86_64.sh -b -p ~/.local/anaconda3
+# echo 'export PATH=$HOME/.local/anaconda3/bin:$PATH' >> ~/.bashrc

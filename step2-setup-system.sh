@@ -1,5 +1,5 @@
 HERE=`cd $(dirname $0); pwd`
-cat profile.tmpl >> /etc/profile
+cat tmpl_profile >> /etc/profile
 
 ################################################################################
 # firewall
