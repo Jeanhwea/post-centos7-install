@@ -4,7 +4,8 @@ cat tmpl_profile >> /etc/profile
 ################################################################################
 # firewall
 ################################################################################
-systemctl disable firewalld
+systemctl stop firewalld.service
+systemctl disable firewalld.service
 
 
 ################################################################################
