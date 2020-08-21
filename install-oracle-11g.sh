@@ -141,7 +141,7 @@ SELINUX=disabled
 ################################################################################
 # /etc/fstab
 ################################################################################
-shmfs /dev/shm tmpfs size=16g 0 0
+tmpfs /dev/shm tmpfs defaults,size=8g 0 0
 
 # dd if=/dev/zero of=/swapfile bs=1k count=4000000
 # mkswap /swapfile
