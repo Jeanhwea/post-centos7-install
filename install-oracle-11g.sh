@@ -174,8 +174,10 @@ sed -i 's/^(\s\$(MK_EMAGENT_NMECTL))\s$/\1 -lnnz11/g' $ORACLE_HOME/sysman/lib/in
 ################################################################################
 ora11g:/u01/app/oracle/product/11.2.0/dbhome_1:Y
 
+
 ################################################################################
 # /etc/rc.local
+# chmod +x /etc/rc.local
 ################################################################################
 # start oracle database
 su - oracle -c 'lsnrctl start'
