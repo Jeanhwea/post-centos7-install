@@ -1,24 +1,3 @@
-################################################################################
-# change system identifier
-################################################################################
-echo 'redhat-7' > /etc/redhat-release
-
-
-################################################################################
-# create user
-################################################################################
-groupadd oinstall && \
-  groupadd dba && \
-  groupadd oper && \
-  useradd -g oinstall -G dba,oper oracle
-
-echo system | passwd --stdin oracle
-
-mkdir -p /u01/app && \
-  chown -R oracle:oinstall /u01/app && \
-  chmod -R 775 /u01/app
-
-
 STR_HOSTNAME=$(hostname)
 STR_HOSTADDR=$(hostname -I | awk '{ print $1 }')
 
@@ -36,6 +15,27 @@ EOF
 ################################################################################
 # NETWORKING=yes
 # HOSTNAME=hostname.localdomain
+
+
+################################################################################
+# change system identifier
+################################################################################
+echo 'redhat-7' > /etc/redhat-release
+
+
+################################################################################
+# create user, group
+################################################################################
+groupadd oinstall && \
+  groupadd dba && \
+  groupadd oper && \
+  useradd -g oinstall -G dba,oper oracle
+
+echo system | passwd --stdin oracle
+
+mkdir -p /u01/app && \
+  chown -R oracle:oinstall /u01/app && \
+  chmod -R 775 /u01/app
 
 
 ################################################################################
