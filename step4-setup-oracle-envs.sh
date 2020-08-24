@@ -30,6 +30,7 @@ cat >> /etc/hosts <<EOF
 $STR_HOSTADDR $STR_HOSTNAME
 EOF
 
+
 ################################################################################
 # /etc/sysconfig/network
 ################################################################################
@@ -40,7 +41,7 @@ EOF
 ################################################################################
 # /etc/profile
 ################################################################################
-cat >> /etc/profile <<EOF
+cat >> /etc/profile <<\EOF
 # 基础变量
 export ORACLE_BASE=/u01/app/oracle
 export ORACLE_SID=ora11g
@@ -67,10 +68,11 @@ alias sp='rlwrap sqlplus'
 alias rman='rlwrap rman'
 EOF
 
+
 ################################################################################
 # /etc/sysctl.conf
 ################################################################################
-cat >> /etc/sysctl.conf <<EOF
+cat >> /etc/sysctl.conf <<\EOF
 # 共享内存 cat /proc/sys/kernel/shmall
 # shmmni 缺省 4096 即可，shmmax 最小 536870912, 最大为物理内存减小 1 字节
 # 32G 内存大约需要： 32*1024*1024*1024-1 = 34359738367
@@ -103,10 +105,11 @@ net.core.wmem_default = 262144
 net.core.wmem_max = 1048576
 EOF
 
+
 ################################################################################
 # /etc/security/limits.conf
 ################################################################################
-cat >> /etc/security/limits.conf <<EOF
+cat >> /etc/security/limits.conf <<\EOF
 oracle   soft   nproc    131072
 oracle   hard   nproc    131072
 oracle   soft   nofile   131072
@@ -125,6 +128,7 @@ EOF
 ################################################################################
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
+
 ################################################################################
 # /etc/fstab
 ################################################################################
@@ -135,7 +139,6 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 # swapon /swapfile
 # swapon -s
 # swapoff
-
 
 
 ################################################################################
