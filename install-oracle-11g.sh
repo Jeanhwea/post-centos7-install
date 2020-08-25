@@ -184,6 +184,8 @@ su - oracle -c 'lsnrctl start'
 su - oracle -c 'dbstart /u01/app/oracle/product/11.2.0/dbhome_1'
 # su - oracle -c 'emctl start dbconsole'
 
+# fix em
+emca -config dbcontrol db -repos recreate
 
 ################################################################################
 # /etc/init.d/oracle
