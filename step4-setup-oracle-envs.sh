@@ -64,6 +64,14 @@ alias envo='env | grep ORACLE'
 # rlwrap must be install
 alias sp='rlwrap sqlplus'
 alias rman='rlwrap rman'
+
+# quick commands
+alias d0='dbshut $ORACLE_HOME'
+alias d1='dbstart $ORACLE_HOME'
+alias l0='lsnrctl stop'
+alias l1='lsnrctl start'
+alias e0='emctl stop dbconsole'
+alias e1='emctl start dbconsole'
 EOF
 
 

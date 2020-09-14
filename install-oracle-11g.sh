@@ -83,6 +83,14 @@ alias envo='env | grep ORACLE'
 alias sp='rlwrap sqlplus'
 alias rman='rlwrap rman'
 
+# quick commands
+alias d0='dbshut $ORACLE_HOME'
+alias d1='dbstart $ORACLE_HOME'
+alias l0='lsnrctl stop'
+alias l1='lsnrctl start'
+alias e0='emctl stop dbconsole'
+alias e1='emctl start dbconsole'
+
 ################################################################################
 # /etc/sysctl.conf
 ################################################################################
@@ -157,7 +165,7 @@ tmpfs /dev/shm tmpfs defaults,size=8g 0 0
 # 主要因为C库的问题。解决办法就是手动指定C库位置。出现 agent nmhs 问题后找到
 # $ORACLE_HOME/sysman/lib/ins_emagent.mk 文件里找到 $(MK_EMAGENT_NMECTL) 字符串，
 # 然后在后面加上 -lnnz11 后点重试就可以解决
-sed -i 's/^(\s\$(MK_EMAGENT_NMECTL))\s$/\1 -lnnz11/g' $ORACLE_HOME/sysman/lib/ins_emagent.mk
+sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g'  $ORACLE_HOME/sysman/lib/ins_emagent.mk
 
 
 ################################################################################
