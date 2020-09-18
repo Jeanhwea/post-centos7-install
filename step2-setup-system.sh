@@ -9,7 +9,8 @@ export PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
 
 # python & anaconda
 export PYTHONDONTWRITEBYTECODE=1
-export PYTHONPATH=.
+export PYTHONPATH=.:${PYTHONPATH:+:${PYTHONPATH}}
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export CONDA_HOME=/usr/local/anaconda3
 alias py='$CONDA_HOME/bin/python'
 alias ipy='$CONDA_HOME/bin/ipython'
