@@ -11,8 +11,8 @@ export PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONPATH=.
 export CONDA_HOME=/usr/local/anaconda3
-alias py='$CUDA_HOME/bin/python'
-alias ipy='$CUDA_HOME/bin/ipython'
+alias py='$CONDA_HOME/bin/python'
+alias ipy='$CONDA_HOME/bin/ipython'
 
 # tmux
 alias t='tmux list-sessions'
