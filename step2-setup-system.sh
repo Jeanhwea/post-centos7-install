@@ -43,5 +43,6 @@ timedatectl set-ntp yes
 timedatectl
 # ntpq -p
 
+su - admin -c "echo 'set completion-ignore-case on' >> ~/.inputrc"
 
 # timedatectl set-time "YYYY-MM-DD HH:MM:SS"
