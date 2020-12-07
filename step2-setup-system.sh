@@ -1,6 +1,9 @@
 HERE=`cd $(dirname $0); pwd`
 
 cat >> /etc/profile <<\EOF
+# basic
+export EDITOR=vim
+
 # jdk & maven
 export JAVA_HOME=/usr/local/java/jdk1.8.0_191
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar${CLASSPATH:+:${CLASSPATH}}

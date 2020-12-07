@@ -66,6 +66,7 @@ export ORACLE_HOME=$ORACLE_BASE/product/11.2.0/dbhome_1
 export TNS_ADMIN=$ORACLE_HOME/network/admin
 export PATH=$PATH:$ORACLE_HOME/bin
 
+export EDITOR=vim
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib:/usr/local/lib
 export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
 
