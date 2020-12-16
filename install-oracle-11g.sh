@@ -72,6 +72,7 @@ export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
 
 # export NLS_LANG="AMERICAN.AL32UTF8"
 export NLS_LANG=".AL32UTF8"
+export NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
 
 # 常用别名
 alias cdob='cd $ORACLE_BASE'

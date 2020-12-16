@@ -49,6 +49,7 @@ export ORACLE_SID=ora11g
 export ORACLE_HOME=$ORACLE_BASE/product/11.2.0/dbhome_1
 export TNS_ADMIN=$ORACLE_HOME/network/admin
 export NLS_LANG=AMERICAN_AMERICA.AL32UTF8
+export NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
 export PATH=$PATH:$ORACLE_HOME/bin
 
 export EDITOR=vim
