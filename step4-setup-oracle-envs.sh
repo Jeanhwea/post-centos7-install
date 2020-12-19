@@ -157,7 +157,7 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 # 主要因为C库的问题。解决办法就是手动指定C库位置。出现 agent nmhs 问题后找到
 # $ORACLE_HOME/sysman/lib/ins_emagent.mk 文件里找到 $(MK_EMAGENT_NMECTL) 字符串，
 # 然后在后面加上 -lnnz11 后点重试就可以解决
-# sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g'  $ORACLE_HOME/sysman/lib/ins_emagent.mk
+# sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $ORACLE_HOME/sysman/lib/ins_emagent.mk
 
 
 ################################################################################
