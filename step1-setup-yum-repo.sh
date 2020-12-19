@@ -33,8 +33,7 @@ yum install -y gcc gcc-c++ cmake automake zip unzip python3 python3-devel \
     numactl-devel pciutils-devel python-devel zlib-devel readline-devel
 
 # for mysql
-yum install -y gcc gcc-c++ cmake ncurses ncurses-devel bison bison-devel openssl \
-    openssl-devel
+yum install -y cmake ncurses ncurses-devel bison bison-devel openssl openssl-devel
 
 # for cuda install
 # yum install -y python* python3* mesa* freeglut* *glew*
