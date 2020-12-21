@@ -202,6 +202,15 @@ su - oracle -c 'dbstart /u01/app/oracle/product/11.2.0/dbhome_1'
 # fix em
 emca -config dbcontrol db -repos recreate
 
+# disable transparent hugepage
+if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
+  echo never > /sys/kernel/mm/transparent_hugepage/enabled
+fi
+
+if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
+  echo never > /sys/kernel/mm/transparent_hugepage/defrag
+fi
+
 ################################################################################
 # /etc/init.d/oracle
 ################################################################################
