@@ -1,5 +1,5 @@
 USERNAME=admin
-PACKAGES=~admin/upload/packages
+PACKAGES=~admin/download/packages
 
 ################################################################################
 # java
