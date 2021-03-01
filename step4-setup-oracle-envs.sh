@@ -90,11 +90,11 @@ cat >> /etc/sysctl.conf <<\EOF
 #  8G 内存大约需要：  8*1024*1024*1024-1 = 8589934591
 #  4G 内存大约需要：  4*1024*1024*1024-1 = 4294967295
 # vim 里面在插入模式中使用 <C-r>= 简单计算
-kernel.shmmax = 8589934591
+kernel.shmmax = 18446744073692774399
 kernel.shmmni = 4096
 # Linux 的共享内存页大小为 4K，
 # 对于 32G 内存的系统大约需要最大的页数为: 32*1024*1024/4 = 8388608
-kernel.shmall = 2097152
+kernel.shmall = 18446744073692774399
 
 # 进程之间通信消息大小的最大值
 kernel.msgmax = 65536
@@ -142,7 +142,7 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 ################################################################################
 # /etc/fstab
 ################################################################################
-# tmpfs /dev/shm tmpfs defaults,size=8g 0 0
+echo "tmpfs /dev/shm tmpfs defaults,size=32g 0 0" >> /etc/fstab
 
 # dd if=/dev/zero of=/swapfile bs=1k count=4000000
 # mkswap /swapfile
