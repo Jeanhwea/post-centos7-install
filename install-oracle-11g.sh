@@ -155,11 +155,15 @@ SELINUX=disabled
 ################################################################################
 tmpfs /dev/shm tmpfs defaults,size=8g 0 0
 
+# make 4G swap file
 # dd if=/dev/zero of=/swapfile bs=1k count=4000000
 # mkswap /swapfile
 # swapon /swapfile
 # swapon -s
 # swapoff
+#
+# add when system boot
+# echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
 
 ################################################################################
 # 标准大页和透明大页的配置
