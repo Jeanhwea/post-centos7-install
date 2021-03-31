@@ -76,6 +76,8 @@ alias e0='emctl stop dbconsole'
 alias e1='emctl start dbconsole'
 alias e8='emca -deconfig dbcontrol db -repos drop'
 alias e9='emca -config dbcontrol db -repos create'
+alias db='rlwrap sqlplus bamtri_mes/bamtri_mes'
+alias dr='sqlplus -S bamtri_mes/bamtri_mes < '
 EOF
 
 
