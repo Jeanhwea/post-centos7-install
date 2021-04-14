@@ -7,6 +7,7 @@ echo "# Last updated at $(date +'%Y-%m-%d'), DO NOT ADD SCRIPT UNDER THIS LINE!!
 
 cat >> $CONFFILE <<\EOF
 export PS1='[\u@\h \w]\$ '
+alias down='find . -maxdepth 3 -name sc | xargs -I {} bash -c "{} s"'
 alias db='rlwrap sqlplus bamtri_mes/bamtri_mes'
 alias de='sqlplus -S bamtri_mes/bamtri_mes'
 alias dr='sqlplus -S bamtri_mes/bamtri_mes < '
