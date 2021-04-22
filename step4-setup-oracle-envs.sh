@@ -76,8 +76,6 @@ alias e0='emctl stop dbconsole'
 alias e1='emctl start dbconsole'
 alias e8='emca -deconfig dbcontrol db -repos drop'
 alias e9='emca -config dbcontrol db -repos create'
-alias db='rlwrap sqlplus bamtri_mes/bamtri_mes'
-alias dr='sqlplus -S bamtri_mes/bamtri_mes < '
 EOF
 
 
@@ -136,6 +134,21 @@ EOF
 
 
 ################################################################################
+# /etc/rc.local
+################################################################################
+cat >> /etc/rc.local <<EOF
+# disable transparent hugepage
+if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
+  echo never > /sys/kernel/mm/transparent_hugepage/enabled
+fi
+
+if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
+  echo never > /sys/kernel/mm/transparent_hugepage/defrag
+fi
+EOF
+
+
+################################################################################
 # /etc/selinux/config
 ################################################################################
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
@@ -182,15 +195,6 @@ chmod +x /etc/rc.local
 # /etc/rc.local
 # chmod +x /etc/rc.local
 ################################################################################
-# disable transparent hugepage
-# if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
-#   echo never > /sys/kernel/mm/transparent_hugepage/enabled
-# fi
-#
-# if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
-#   echo never > /sys/kernel/mm/transparent_hugepage/defrag
-# fi
-#
 # start oracle database
 # su - oracle -c 'lsnrctl start'
 # su - oracle -c 'dbstart /u01/app/oracle/product/11.2.0/dbhome_1'
