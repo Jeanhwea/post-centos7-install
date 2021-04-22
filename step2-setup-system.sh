@@ -1,4 +1,5 @@
 HERE=`cd $(dirname $0); pwd`
+STR_HOSTADDR=$(hostname -I | awk '{ print $1 }')
 USERNAME=admin
 
 cat >> /etc/profile <<\EOF
@@ -30,6 +31,12 @@ alias td='tmux detach'
 # export PATH=$CUDA_HOME/bin${PATH:+:${PATH}}
 # export LD_LIBRARY_PATH=$CUDA_HOME/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 EOF
+
+
+cat >> /etc/profile <<EOF
+export PEIZHI_URL=http://$STR_HOSTADDR:9000
+EOF
+
 
 ################################################################################
 # firewall
