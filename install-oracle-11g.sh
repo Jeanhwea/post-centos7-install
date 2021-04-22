@@ -207,14 +207,6 @@ ora11g:/u01/app/oracle/product/11.2.0/dbhome_1:Y
 # /etc/rc.local
 # chmod +x /etc/rc.local
 ################################################################################
-# start oracle database
-su - oracle -c 'lsnrctl start'
-su - oracle -c 'dbstart /u01/app/oracle/product/11.2.0/dbhome_1'
-# su - oracle -c 'emctl start dbconsole'
-
-# fix em
-emca -config dbcontrol db -repos recreate
-
 # disable transparent hugepage
 if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
   echo never > /sys/kernel/mm/transparent_hugepage/enabled
@@ -223,3 +215,11 @@ fi
 if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
   echo never > /sys/kernel/mm/transparent_hugepage/defrag
 fi
+
+# start oracle database
+su - oracle -c 'lsnrctl start'
+su - oracle -c 'dbstart /u01/app/oracle/product/11.2.0/dbhome_1'
+# su - oracle -c 'emctl start dbconsole'
+
+# fix em
+emca -config dbcontrol db -repos recreate

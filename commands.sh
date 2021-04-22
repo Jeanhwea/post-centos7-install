@@ -26,3 +26,18 @@ yum groupinstall "GNOME Desktop" "Graphical Administration Tools"
 systemctl get-default
 systemctl set-default graphical.target
 systemctl set-default multi-user.target
+
+
+################################################################################
+# oracle
+################################################################################
+# fix oracle install
+sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $ORACLE_HOME/sysman/lib/ins_emagent.mk
+
+# root scripts
+/u01/app/oraInventory/orainstRoot.sh
+/u01/app/oracle/product/11.2.0/dbhome_1/root.sh
+
+# mkdir folders
+mkdir /u01/app/oracle/oradata/mes
+mkdir /u01/app/oracle/oradata/spot
