@@ -145,6 +145,14 @@ fi
 if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
   echo never > /sys/kernel/mm/transparent_hugepage/defrag
 fi
+
+################################################################################
+# chmod +x /etc/rc.local
+################################################################################
+# start oracle database
+# su - oracle -c 'lsnrctl start'
+# su - oracle -c 'dbstart /u01/app/oracle/product/11.2.0/dbhome_1'
+# su - oracle -c 'emctl start dbconsole'
 EOF
 
 
