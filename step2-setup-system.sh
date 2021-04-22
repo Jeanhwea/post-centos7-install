@@ -1,4 +1,5 @@
 HERE=`cd $(dirname $0); pwd`
+USERNAME=admin
 
 cat >> /etc/profile <<\EOF
 # basic
@@ -46,6 +47,17 @@ timedatectl set-ntp yes
 timedatectl
 # ntpq -p
 
-su - admin -c "echo 'set completion-ignore-case on' >> ~/.inputrc"
+su - $USERNAME -c "echo 'set completion-ignore-case on' >> ~/.inputrc"
+
+
+################################################################################
+# sudoer
+################################################################################
+chmod u+w /etc/sudoers
+cat >> /etc/sudoers <<EOF
+# Allow admin to run any commands
+$USERNAME ALL=(ALL) ALL
+EOF
+chmod u-w /etc/sudoers
 
 # timedatectl set-time "YYYY-MM-DD HH:MM:SS"

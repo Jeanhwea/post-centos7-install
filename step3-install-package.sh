@@ -43,14 +43,14 @@ cd /tmp && \
 
 
 ################################################################################
-# sudoer
+# htop
 ################################################################################
-chmod u+w /etc/sudoers
-cat >> /etc/sudoers <<EOF
-# Allow admin to run any commands
-$USERNAME ALL=(ALL) ALL
-EOF
-chmod u-w /etc/sudoers
+cd /tmp && \
+  tar xzvf $PACKAGES/htop-2.2.0.tar.gz && \
+  cd htop-2.2.0 && \
+  ./autogen.sh && \
+  ./configure --prefix=/usr/local && \
+  make && make install
 
 
 ################################################################################
