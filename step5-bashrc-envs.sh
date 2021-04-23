@@ -20,7 +20,7 @@ sed -i '/# User specific aliases and functions/a#<>#' $CONFFILE
 sed -i '/#<>#/,$d' $CONFFILE
 echo "# Last updated at $(date +'%Y-%m-%d'), DO NOT ADD SCRIPT UNDER THIS LINE!!!" >> $CONFFILE
 
-cat >> $CONFFILE <<\EOF
+cat >> $CONFFILE <<EOF
 export PS1='[\u@${CLRHOST}\h${CLRRST} ${CLRYLW}\w${CLRRST}]\$ '
 alias down='find . -maxdepth 3 -name sc | xargs -I {} bash -c "{} s"'
 alias db='rlwrap sqlplus bamtri_mes/bamtri_mes'
