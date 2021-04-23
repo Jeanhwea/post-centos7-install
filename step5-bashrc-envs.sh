@@ -11,7 +11,7 @@ CLRMGA="\033[35m"
 CLRRST="\033[0m"
 
 CLRHOST=$CLRRED
-if [[ $HOSTADDR =~ "^192.168.*" ]]; then
+if [[ "$HOSTADDR" =~ ^172.16..*$ ]]; then
   CLRHOST=$CLRGRN
 fi
 
