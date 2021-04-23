@@ -26,4 +26,5 @@ alias down='find . -maxdepth 3 -name sc | xargs -I {} bash -c "{} s"'
 alias db='rlwrap sqlplus bamtri_mes/bamtri_mes'
 alias de='sqlplus -S bamtri_mes/bamtri_mes'
 alias dr='sqlplus -S bamtri_mes/bamtri_mes < '
+alias gl='git pull'
 EOF
