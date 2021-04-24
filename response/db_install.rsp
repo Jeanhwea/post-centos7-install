@@ -186,7 +186,7 @@ oracle.install.db.racOneServiceName=
 #   - GENERAL_PURPOSE/TRANSACTION_PROCESSING
 #   - DATA_WAREHOUSE
 #------------------------------------------------------------------------------
-oracle.install.db.config.starterdb.type=GENERAL_PURPOSE/TRANSACTION_PROCESSING
+oracle.install.db.config.starterdb.type=GENERAL_PURPOSE
 
 #------------------------------------------------------------------------------
 # Specify the Starter Database Global Database Name.

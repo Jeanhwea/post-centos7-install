@@ -34,6 +34,8 @@ systemctl set-default multi-user.target
 # mount cdrom
 sudo mount /dev/cdrom /media/cdrom
 
+/media/cdrom/database/runInstaller -silent -ignorePrereq -waitforcompletion -responseFile /tmp/db_install.rsp
+
 # fix oracle install
 sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $ORACLE_HOME/sysman/lib/ins_emagent.mk
 
