@@ -31,6 +31,9 @@ systemctl set-default multi-user.target
 ################################################################################
 # oracle
 ################################################################################
+# mount cdrom
+sudo mount /dev/cdrom /media/cdrom
+
 # fix oracle install
 sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $ORACLE_HOME/sysman/lib/ins_emagent.mk
 
