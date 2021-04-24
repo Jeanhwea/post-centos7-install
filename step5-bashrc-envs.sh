@@ -10,16 +10,26 @@ CLRBLU="\033[34m"
 CLRMGA="\033[35m"
 CLRRST="\033[0m"
 
+################################################################################
+# Detect alert level.
+################################################################################
 CLRHOST=$CLRRED
 if [[ "$HOSTADDR" =~ ^192.168.[0-9]+.[0-9]+$ ]]; then
   CLRHOST=$CLRGRN
 fi
 
 
+################################################################################
+# Removing old configuration.
+################################################################################
 sed -i '/# User specific aliases and functions/a#<>#' $CONFFILE
 sed -i '/#<>#/,$d' $CONFFILE
 echo "# Last updated at $(date +'%Y-%m-%d'), DO NOT ADD SCRIPT UNDER THIS LINE!!!" >> $CONFFILE
 
+
+################################################################################
+# Starting add configuration.
+################################################################################
 # add with environment substitute
 cat >> $CONFFILE << EOF
 export PS1='[${CLRHOST}\u@\h${CLRRST} ${CLRYLW}\w${CLRRST}]\$ '
