@@ -32,19 +32,19 @@ sleep 10 && \
   sudo su - oracle -c "tail -F -n 0 /u01/app/oraInventory/logs/installActions*.log" &
 
 EMAGENT="$ORACLE_HOME/sysman/lib/ins_emagent.mk"
-sleep 20 && sudo ls $EMAGENT && \
+sleep 20 && sudo ls $EMAGENT && logi "fix $EMAGENT" && \
   sudo su - oracle -c "sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $EMAGENT" &
 
-sleep 40 && sudo ls $EMAGENT && \
+sleep 40 && sudo ls $EMAGENT && logi "fix $EMAGENT" && \
   sudo su - oracle -c "sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $EMAGENT" &
 
-sleep 60 && sudo ls $EMAGENT && \
+sleep 60 && sudo ls $EMAGENT && logi "fix $EMAGENT" && \
   sudo su - oracle -c "sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $EMAGENT" &
 
-sleep 80 && sudo ls $EMAGENT && \
+sleep 80 && sudo ls $EMAGENT && logi "fix $EMAGENT" && \
   sudo su - oracle -c "sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $EMAGENT" &
 
-sleep 100 && sudo ls $EMAGENT && \
+sleep 100 && sudo ls $EMAGENT && logi "fix $EMAGENT" && \
   sudo su - oracle -c "sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $EMAGENT" &
 
 logi "Invoking Oracle Database 11g ..."
