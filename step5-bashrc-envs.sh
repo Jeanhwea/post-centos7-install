@@ -22,7 +22,7 @@ echo "# Last updated at $(date +'%Y-%m-%d'), DO NOT ADD SCRIPT UNDER THIS LINE!!
 
 # add with environment substitute
 cat >> $CONFFILE << EOF
-export PS1='${CLRYLW}[${CLRRST}${CLRHOST}\u@\h${CLRRST} ${CLRBLU}\w${CLRRST}${CLRYLW}]${CLRRST}\$ '
+export PS1='${CLRBLU}[${CLRRST}${CLRHOST}\u@\h${CLRRST} ${CLRYLW}\w${CLRRST}${CLRBLU}]${CLRRST}\$ '
 EOF
 
 # add without environment substitute
