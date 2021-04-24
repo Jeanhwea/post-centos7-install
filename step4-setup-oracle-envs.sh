@@ -134,9 +134,9 @@ EOF
 
 
 ################################################################################
-# /etc/rc.local
+# /etc/rc.d/rc.local
 ################################################################################
-cat >> /etc/rc.local <<EOF
+cat >> /etc/rc.d/rc.local <<EOF
 # disable transparent hugepage
 if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
   echo never > /sys/kernel/mm/transparent_hugepage/enabled
@@ -147,7 +147,7 @@ if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
 fi
 
 ################################################################################
-# chmod +x /etc/rc.local
+# chmod +x /etc/rc.d/rc.local
 ################################################################################
 # start oracle database
 # su - oracle -c 'dbstart /u01/app/oracle/product/11.2.0/dbhome_1'
@@ -198,10 +198,10 @@ echo "tmpfs /dev/shm tmpfs defaults,size=32g 0 0" >> /etc/fstab
 # ora11g:/u01/app/oracle/product/11.2.0/dbhome_1:Y
 
 
-chmod +x /etc/rc.local
+chmod +x /etc/rc.d/rc.local
 ################################################################################
-# /etc/rc.local
-# chmod +x /etc/rc.local
+# /etc/rc.d/rc.local
+# chmod +x /etc/rc.d/rc.local
 ################################################################################
 # start oracle database
 # su - oracle -c 'lsnrctl start'
