@@ -26,6 +26,7 @@ sudo /u01/app/oracle/product/11.2.0/dbhome_1/root.sh
 echo "Post install tasks"
 sudo sed -i 's/# su - oracle/su - oracle/g' /etc/rc.local
 sudo sed -i 's/:N$/:Y/g' /etc/oratab
+sudo chmod +x /etc/rc.local
 
 sudo su - oracle -c "cd /u01/app/oracle/oradata && mkdir mes && mkdir spot"
 
