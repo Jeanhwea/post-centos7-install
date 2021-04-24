@@ -19,7 +19,7 @@ mkdir -p /media/cdrom && mount /dev/cdrom /media/cdrom &&
 yum makecache
 
 # common tools
-yum install -y net-tools tmux ntp tree kernel-devel kernel-doc kernel-headers
+yum install -y net-tools vim tmux ntp tree kernel-devel kernel-doc kernel-headers
 
 # for oracle 11g install
 yum install -y binutils compat-libcap1 compat-libstdc++-33 gcc gcc-c++ glibc \
