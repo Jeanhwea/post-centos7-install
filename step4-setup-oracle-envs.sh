@@ -150,8 +150,8 @@ fi
 # chmod +x /etc/rc.local
 ################################################################################
 # start oracle database
-# su - oracle -c 'lsnrctl start'
 # su - oracle -c 'dbstart /u01/app/oracle/product/11.2.0/dbhome_1'
+# su - oracle -c 'lsnrctl start'
 # su - oracle -c 'emctl start dbconsole'
 EOF
 
