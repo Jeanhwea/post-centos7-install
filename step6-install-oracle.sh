@@ -31,7 +31,7 @@ sed "s/orclmem/${ORCLMEM}/g" ./response/db_install.rsp > /tmp/db_install.rsp \
 sleep 10 && \
   sudo su - oracle -c "tail -F -n 0 /u01/app/oraInventory/logs/installActions*.log" &
 
-sleep 120 && \
+sleep 300 && \
   sudo su - oracle -c "sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $ORACLE_HOME/sysman/lib/ins_emagent.mk" &
 
 
