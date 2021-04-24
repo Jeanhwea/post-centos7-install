@@ -7,8 +7,9 @@ ORCLMEM=$(expr $TOTALMEM / 2560)
 
 sudo mount /dev/cdrom /media/cdrom
 
-if [ -f $INSTALLER ]; then
-  echo "Error: $INSTALLER not found"
+if [ ! -f $INSTALLER ]; then
+  echo "Error: $INSTALLER not found!"
+  exit 2
 fi
 
 sed "s/orclmem/${ORCLMEM}/g" ./response/db_install.rsp > /tmp/db_install.rsp \
