@@ -16,7 +16,7 @@ sed "s/orclmem/${ORCLMEM}/g" ./response/db_install.rsp > /tmp/db_install.rsp \
   && chmod 777 ./response/db_install.rsp
 
 
-sudo su - oracle -c "sleep 60 && sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $ORACLE_HOME/sysman/lib/ins_emagent.mk" &
+sudo su - oracle -c "sleep 100 && sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $ORACLE_HOME/sysman/lib/ins_emagent.mk" &
 
 
 echo "Installing Oracle Database 11g ..."
