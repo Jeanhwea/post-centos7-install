@@ -2,6 +2,8 @@ HERE=`cd $(dirname $0); pwd`
 INSTALLER=/media/cdrom/database/runInstaller
 SYSUSER=${SYSUSER:="system"}
 SYSPASS=${SYSPASS:="oracle"}
+TOTALMEM=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+ORCLMEM=$(expr $TOTALMEM / 2560)
 
 sudo mount /dev/cdrom /media/cdrom
 
@@ -9,7 +11,8 @@ if [ -f $INSTALLER ]; then
   echo "Error: $INSTALLER not found"
 fi
 
-cp ./response/db_install.rsp /tmp && chmod 777 ./response/db_install.rsp
+sed "s/orclmem/${ORCLMEM}/g" ./response/db_install.rsp > /tmp/db_install.rsp \
+  && chmod 777 ./response/db_install.rsp
 
 echo "Installing Oracle Database 11g ..."
 sudo su - oracle -c "$INSTALLER -silent -ignorePrereq -waitforcompletion -responseFile /tmp/db_install.rsp"
