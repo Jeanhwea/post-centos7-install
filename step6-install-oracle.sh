@@ -7,7 +7,7 @@ if [ -f $INSTALLER ]; then
   echo "Error: $INSTALLER not found"
 fi
 
-cp ./response/db_install.rsp /tmp
+cp ./response/db_install.rsp /tmp && chmod 777 ./response/db_install.rsp
 
 echo "Installing Oracle Database 11g ..."
 sudo su - oracle -c "$INSTALLER -silent -ignorePrereq -waitforcompletion -responseFile /tmp/db_install.rsp"
