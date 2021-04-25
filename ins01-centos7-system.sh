@@ -7,9 +7,9 @@ CLRBLU="\033[34m"
 CLRMGA="\033[35m"
 CLRRST="\033[0m"
 
-logi() {echo -e "$(date +'%F %T : ') ${CLRGRN}$*${CLRRST}"}
-logw() {echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}"}
-loge() {echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"}
+logi() { echo -e "$(date +'%F %T : ') ${CLRGRN}$*${CLRRST}" }
+logw() { echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}" }
+loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}" }
 
 for script in $(ls "$HERE/step1*.sh"); do
   logi "Execute file $script"
