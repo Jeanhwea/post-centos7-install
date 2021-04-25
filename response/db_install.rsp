@@ -232,7 +232,7 @@ oracle.install.db.config.starterdb.memoryLimit=orclmem
 # This variable controls whether to load Example Schemas onto
 # the starter database or not.
 #------------------------------------------------------------------------------
-oracle.install.db.config.starterdb.installExampleSchemas=false
+oracle.install.db.config.starterdb.installExampleSchemas=true
 
 #------------------------------------------------------------------------------
 # This variable includes enabling audit settings, configuring password profiles
