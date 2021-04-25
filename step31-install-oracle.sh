@@ -28,7 +28,7 @@ if [ ! -f $INSTALLER ]; then
   exit 2
 fi
 
-logi "Installing Oracle Database 11g ..."
+logw "Installing Oracle Database 11g ..."
 
 sed "s/orclmem/${ORCLMEM}/g" $HERE/response/db_install.rsp > /tmp/db_install.rsp \
   && chmod 777 /tmp/db_install.rsp
@@ -44,7 +44,7 @@ sleep 80 && test -f $EMAGENT && logw "fix $EMAGENT" && su - oracle -c "${FIXCMD}
 sleep 99 && test -f $EMAGENT && logw "fix $EMAGENT" && su - oracle -c "${FIXCMD}" &
 
 
-logi "Invoking Oracle Database 11g ..."
+logi "Invoking $INSTALLER ..."
 su - oracle -c "$INSTALLER -silent -ignorePrereq -waitforcompletion -responseFile /tmp/db_install.rsp"
 
 
