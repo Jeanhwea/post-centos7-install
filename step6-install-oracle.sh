@@ -30,8 +30,8 @@ fi
 
 logi "Installing Oracle Database 11g ..."
 
-sed "s/orclmem/${ORCLMEM}/g" ./response/db_install.rsp > /tmp/db_install.rsp \
-  && chmod 777 ./response/db_install.rsp
+sed "s/orclmem/${ORCLMEM}/g" $HERE/response/db_install.rsp > /tmp/db_install.rsp \
+  && chmod 777 /tmp/db_install.rsp
 
 sleep 10 && su - oracle -c "tail -F -n 0 /u01/app/oraInventory/logs/installActions*.log" &
 
