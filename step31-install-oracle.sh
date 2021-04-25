@@ -18,6 +18,11 @@ logi() { echo -e "$(date +'%F %T : ') ${CLRGRN}$*${CLRRST}"; }
 logw() { echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}"; }
 loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
 
+runw() { $* | while read line; do echo -e "${CLRYLW}$line${CLRRST}"; done; }
+
+runw 'free'
+runw 'df -h | grep shm'
+
 mkdir -p /media/cdrom
 if [ -f $ISODIR/p13390677_112040_Linux-x86-64_disk1.iso ]; then
   mount -o loop $ISODIR/p13390677_112040_Linux-x86-64_disk1.iso /media/cdrom
