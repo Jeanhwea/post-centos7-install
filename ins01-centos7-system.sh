@@ -1,7 +1,22 @@
 HERE=`cd $(dirname $0); pwd`
 
-su - root  -c "$HERE/step1-setup-yum-repo.sh"
-su - root  -c "$HERE/step2-setup-system.sh"
-su - root  -c "$HERE/step3-install-package.sh"
-su - root  -c "$HERE/step4-setup-oracle-envs.sh"
-su - admin -c "$HERE/step5-bashrc-envs.sh"
+CLRRED="\033[31m"
+CLRGRN="\033[32m"
+CLRYLW="\033[33m"
+CLRBLU="\033[34m"
+CLRMGA="\033[35m"
+CLRRST="\033[0m"
+
+logi() {echo -e "$(date +'%F %T : ') ${CLRGRN}$*${CLRRST}"}
+logw() {echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}"}
+loge() {echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"}
+
+for script in $(ls "$HERE/step1*.sh"); do
+  logi "Execute file $script"
+  su - root -c "$script"
+done
+
+for script in $(ls "$HERE/step2*.sh"); do
+  logi "Execute file $script"
+  su - admin -c "$script"
+done
