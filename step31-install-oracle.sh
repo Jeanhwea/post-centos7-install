@@ -35,7 +35,7 @@ logw "Installing Oracle Database 11g ..."
 sed "s/orclmem/${ORCLMEM}/g" $HERE/response/db_install.rsp > /tmp/db_install.rsp \
   && chmod 777 /tmp/db_install.rsp
 
-sleep 3 && su - oracle -c "tail -F -n 0 /u01/app/oraInventory/logs/installActions*.log" &
+sleep 10 && su - oracle -c "tail -F -n 0 /u01/app/oraInventory/logs/installActions*.log" &
 
 EMAGENT="/u01/app/oracle/product/11.2.0/dbhome_1/sysman/lib/ins_emagent.mk"
 FIXCMD="sed -i 's/^\(\s*\$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $EMAGENT"
