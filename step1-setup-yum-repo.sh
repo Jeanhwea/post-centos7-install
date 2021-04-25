@@ -9,7 +9,7 @@ cd /etc/yum.repos.d && ls *.repo | xargs -I {} mv {} {}.bak
 ################################################################################
 # setup local iso package repository
 ################################################################################
-mkdir -p /media/cdrom && mount /dev/cdrom /media/cdrom &&
+mkdir -p /mnt/cdrom && mount /dev/cdrom /mnt/cdrom &&
   cp $HERE/snippet/CentOS-Media.repo /etc/yum.repos.d/CentOS-Media.repo
 
 

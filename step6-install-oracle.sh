@@ -1,5 +1,5 @@
 HERE=`cd $(dirname $0); pwd`
-INSTALLER=/media/cdrom/database/runInstaller
+INSTALLER=/mnt/cdrom/database/runInstaller
 SYSUSER=${SYSUSER:="system"}
 SYSPASS=${SYSPASS:="oracle"}
 TOTALMEM=$(grep MemTotal /proc/meminfo | awk '{print $2}')
@@ -16,7 +16,7 @@ logi() {
   echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}"
 }
 
-mount /dev/cdrom /media/cdrom
+mount /dev/cdrom /mnt/cdrom
 
 if [ ! -f $INSTALLER ]; then
   echo "Error: $INSTALLER not found!"
