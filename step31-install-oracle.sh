@@ -20,7 +20,7 @@ loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
 
 runw() { sh -c "$*" | while read line; do echo -e "${CLRYLW}$line${CLRRST}"; done; }
 
-runw 'df -h | grep shm'
+runw 'df -h'
 logi "Allocate $TOTALMEM M Memory for oracle."
 runw 'free'
 
