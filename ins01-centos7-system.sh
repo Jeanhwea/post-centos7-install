@@ -11,12 +11,12 @@ logi() { echo -e "$(date +'%F %T : ') ${CLRGRN}$*${CLRRST}"; }
 logw() { echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}"; }
 loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
 
-for script in $(ls "$HERE/step1*.sh"); do
+for script in $(find "$HERE" -maxdepth 1 -name 'step1*.sh'); do
   logi "Execute file $script"
   su - root -c "$script"
 done
 
-for script in $(ls "$HERE/step2*.sh"); do
+for script in $(find "$HERE" -maxdepth 1 -name 'step2*.sh'); do
   logi "Execute file $script"
   su - admin -c "$script"
 done
