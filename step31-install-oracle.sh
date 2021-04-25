@@ -20,8 +20,9 @@ loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
 
 runw() { sh -c "$*" | while read line; do echo -e "${CLRYLW}$line${CLRRST}"; done; }
 
-runw 'free'
 runw 'df -h | grep shm'
+logi "Alloc $TOTALMEM m for oracle."
+runw 'free'
 
 mkdir -p /media/cdrom
 if [ -f $ISODIR/p13390677_112040_Linux-x86-64_disk1.iso ]; then
