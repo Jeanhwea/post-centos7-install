@@ -42,4 +42,5 @@ alias db='rlwrap sqlplus bamtri_mes/bamtri_mes'
 alias de='sqlplus -S bamtri_mes/bamtri_mes'
 alias dr='sqlplus -S bamtri_mes/bamtri_mes < '
 alias gl='git pull'
+alias gg='git log --graph --decorate --oneline'
 EOF
