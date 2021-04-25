@@ -1,4 +1,5 @@
 HERE=`cd $(dirname $0); pwd`
+USERNAME=admin
 
 CLRRED="\033[31m"
 CLRGRN="\033[32m"
@@ -18,5 +19,5 @@ done
 
 for script in $(find "$HERE" -maxdepth 1 -name 'step2*.sh'); do
   logi "Execute script $script"
-  su - admin -c "$script"
+  su - $USERNAME -c "$script"
 done

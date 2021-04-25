@@ -31,7 +31,7 @@ alias td='tmux detach'
 EOF
 
 
-cat >> /etc/profile <<EOF
+cat >> /etc/profile << EOF
 export PEIZHI_URL=http://$STR_HOSTADDR:9000
 EOF
 
