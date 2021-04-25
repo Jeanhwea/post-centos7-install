@@ -16,7 +16,12 @@ logi() {
   echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}"
 }
 
-mount /dev/cdrom /media/cdrom
+mkdir -p /media/cdrom
+if [ -f $ISODIR/p13390677_112040_Linux-x86-64_disk1.iso ]; then
+  mount -o loop $ISODIR/p13390677_112040_Linux-x86-64_disk1.iso /media/cdrom
+else
+  mount /dev/cdrom /media/cdrom
+fi
 
 if [ ! -f $INSTALLER ]; then
   echo "Error: $INSTALLER not found!"
