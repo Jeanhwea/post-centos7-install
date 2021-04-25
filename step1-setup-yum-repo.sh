@@ -1,16 +1,23 @@
 HERE=`cd $(dirname $0); pwd`
-
-################################################################################
-# backup repo files
-################################################################################
-cd /etc/yum.repos.d && ls *.repo | xargs -I {} mv {} {}.bak
-
+USERNAME=admin
+ISODIR=~admin/download/iso
 
 ################################################################################
 # setup local iso package repository
 ################################################################################
-mkdir -p /mnt/cdrom && mount /dev/cdrom /mnt/cdrom &&
-  cp $HERE/snippet/CentOS-Media.repo /etc/yum.repos.d/CentOS-Media.repo
+mkdir -p /mnt/cdrom
+if [ -f $ISODIR/CentOS-7-x86_64-Everything-1908.iso ]; then
+  mount -o loop $ISODIR/CentOS-7-x86_64-Everything-1908.iso /mnt/cdrom
+else
+  mount /dev/cdrom /mnt/cdrom
+fi
+
+if [ ! -f /mnt/cdrom/repodata/repomd.xml ]; then
+  echo "Error: mount centos iso first!"
+  exit 2
+fi
+cd /etc/yum.repos.d && ls *.repo | xargs -I {} mv {} {}.bak
+cp $HERE/snippet/CentOS-Media.repo /etc/yum.repos.d/CentOS-Media.repo
 
 
 ################################################################################
