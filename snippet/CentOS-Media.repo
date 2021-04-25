@@ -13,6 +13,6 @@
 
 [c7-media]
 name=CentOS-$releasever - Media
-baseurl=file:///mnt/cdrom/
+baseurl=file:///media/cdrom/
 gpgcheck=0
 enabled=1

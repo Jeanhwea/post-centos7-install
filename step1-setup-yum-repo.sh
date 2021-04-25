@@ -5,14 +5,14 @@ ISODIR=~admin/download/iso
 ################################################################################
 # setup local iso package repository
 ################################################################################
-mkdir -p /mnt/cdrom
+mkdir -p /media/cdrom
 if [ -f $ISODIR/CentOS-7-x86_64-Everything-1908.iso ]; then
-  mount -o loop $ISODIR/CentOS-7-x86_64-Everything-1908.iso /mnt/cdrom
+  mount -o loop $ISODIR/CentOS-7-x86_64-Everything-1908.iso /media/cdrom
 else
-  mount /dev/cdrom /mnt/cdrom
+  mount /dev/cdrom /media/cdrom
 fi
 
-if [ ! -f /mnt/cdrom/repodata/repomd.xml ]; then
+if [ ! -f /media/cdrom/repodata/repomd.xml ]; then
   echo "Error: mount centos iso first!"
   exit 2
 fi

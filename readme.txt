@@ -1,3 +1,8 @@
+# 配置 ssh key 并上传文件
+export RIP=192.168.0.159
+ssh-copy-id admin@$RIP && scp -r download admin@${RIP}:~
+
+
 # 修改主机名
 hostnamectl set-hostname c114.localadmin
 
@@ -32,9 +37,9 @@ systemctl set-default multi-user.target
 # oracle
 ################################################################################
 # mount cdrom
-sudo mount /dev/cdrom /mnt/cdrom
+sudo mount /dev/cdrom /media/cdrom
 
-/mnt/cdrom/database/runInstaller -silent -ignorePrereq -waitforcompletion -responseFile /tmp/db_install.rsp
+/media/cdrom/database/runInstaller -silent -ignorePrereq -waitforcompletion -responseFile /tmp/db_install.rsp
 
 # fix oracle install
 sed -i 's/^\(\s*$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $ORACLE_HOME/sysman/lib/ins_emagent.mk
