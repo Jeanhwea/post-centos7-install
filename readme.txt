@@ -2,6 +2,8 @@
 export RIP=192.168.0.159
 ssh-copy-id admin@$RIP && scp -r download admin@${RIP}:~
 
+tar xzvf ~/download/packages/id_rsa_sr650.tar.gz
+
 
 # 修改主机名
 hostnamectl set-hostname c114.localadmin
