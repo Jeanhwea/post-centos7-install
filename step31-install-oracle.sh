@@ -24,7 +24,7 @@ else
 fi
 
 if [ ! -f $INSTALLER ]; then
-  echo "Error: $INSTALLER not found!"
+  loge "Error: $INSTALLER not found!"
   exit 2
 fi
 
