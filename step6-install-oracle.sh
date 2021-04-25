@@ -51,5 +51,3 @@ logi "Executing Post-install tasks ..."
 sed -i 's/:N$/:Y/g' /etc/oratab
 sed -i 's/# su - oracle/su - oracle/g' /etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
-
-su - oracle -c "cd /u01/app/oracle/oradata && mkdir mes && mkdir spot"
