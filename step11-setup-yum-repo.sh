@@ -1,6 +1,6 @@
 HERE=`cd $(dirname $0); pwd`
 USERNAME=admin
-ISODIR=~admin/download/iso
+ISODIR=~$USERNAME/download/iso
 
 ################################################################################
 # setup local iso package repository

@@ -25,8 +25,6 @@ alias t='tmux list-sessions'
 alias ta='tmux attach -t Jinghui || tmux new-session -s Jinghui'
 alias td='tmux detach'
 
-# export PEIZHI_URL=http://172.21.0.10/peizhi
-
 # export CUDA_HOME=/usr/local/cuda
 # export PATH=$CUDA_HOME/bin${PATH:+:${PATH}}
 # export LD_LIBRARY_PATH=$CUDA_HOME/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
@@ -61,8 +59,8 @@ su - $USERNAME -c "echo 'set completion-ignore-case on' >> ~/.inputrc"
 # sudoer
 ################################################################################
 chmod u+w /etc/sudoers
-cat >> /etc/sudoers <<EOF
-# Allow admin to run any commands
+cat >> /etc/sudoers << EOF
+# Allow $USERNAME to run any commands
 $USERNAME ALL=(ALL) ALL
 EOF
 chmod u-w /etc/sudoers

@@ -1,5 +1,6 @@
 HERE=`cd $(dirname $0); pwd`
-ISODIR=~admin/download/iso
+USERNAME=admin
+ISODIR=~$USERNAME/download/iso
 INSTALLER=/media/cdrom/database/runInstaller
 SYSUSER=${SYSUSER:="system"}
 SYSPASS=${SYSPASS:="oracle"}
