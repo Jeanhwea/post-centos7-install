@@ -39,11 +39,11 @@ sleep 10 && su - oracle -c "tail -F -n 0 /u01/app/oraInventory/logs/installActio
 
 EMAGENT="/u01/app/oracle/product/11.2.0/dbhome_1/sysman/lib/ins_emagent.mk"
 FIXCMD="sed -i 's/^\(\s*\$(MK_EMAGENT_NMECTL)\)\s*$/\1 -lnnz11/g' $EMAGENT"
-sleep 20 && test -f $EMAGENT && logw "fix $EMAGENT" && su - oracle -c "${FIXCMD}" &
-sleep 40 && test -f $EMAGENT && logw "fix $EMAGENT" && su - oracle -c "${FIXCMD}" &
-sleep 60 && test -f $EMAGENT && logw "fix $EMAGENT" && su - oracle -c "${FIXCMD}" &
-sleep 80 && test -f $EMAGENT && logw "fix $EMAGENT" && su - oracle -c "${FIXCMD}" &
-sleep 99 && test -f $EMAGENT && logw "fix $EMAGENT" && su - oracle -c "${FIXCMD}" &
+sleep 20 && test -f $EMAGENT && logw "[1/5] fix $EMAGENT" && su - oracle -c "${FIXCMD}" &
+sleep 40 && test -f $EMAGENT && logw "[2/5] fix $EMAGENT" && su - oracle -c "${FIXCMD}" &
+sleep 60 && test -f $EMAGENT && logw "[3/5] fix $EMAGENT" && su - oracle -c "${FIXCMD}" &
+sleep 80 && test -f $EMAGENT && logw "[4/5] fix $EMAGENT" && su - oracle -c "${FIXCMD}" &
+sleep 99 && test -f $EMAGENT && logw "[5/5] fix $EMAGENT" && su - oracle -c "${FIXCMD}" &
 
 
 logi "Invoking $INSTALLER ..."
