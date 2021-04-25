@@ -14,13 +14,13 @@ logw() { echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}"; }
 loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
 
 for script in $(find "$HERE" -maxdepth 1 -name 'step3*.sh'); do
-  logi "Execute file $script"
+  logi "Execute script $script"
   su - root -c "$script"
 done
 
 su - oracle -c "cd /u01/app/oracle/oradata && mkdir mes && mkdir spot"
 
 for query in $(find "$HERE/queries" -maxdepth 1 -name '*.sql'); do
-  logi "Execute file $query"
+  logi "Execute query $query"
   su - admin -c "sqlplus -S $SYSUSER/$SYSPASS < $query"
 done
