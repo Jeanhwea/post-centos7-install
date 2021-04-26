@@ -115,5 +115,12 @@ service mysql.server start
 EOF
 chmod +x /etc/rc.d/rc.local
 
+cat >> /etc/profile <<\EOF
+# mysql
+export MYSQL_HOME=/usr/local/mysql
+export PATH=$MYSQL_HOME/bin${PATH:+:${PATH}}
+alias my="$MYSQL_HOME/bin/mysql -uroot"
+EOF
+
 
 logi "Please login with: $MYSQL_HOME/bin/mysql -uroot"

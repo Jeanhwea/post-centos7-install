@@ -20,11 +20,6 @@ export CONDA_HOME=/usr/local/anaconda3
 alias py='$CONDA_HOME/bin/python'
 alias ipy='$CONDA_HOME/bin/ipython'
 
-# mysql
-export MYSQL_HOME=/usr/local/mysql
-export PATH=$MYSQL_HOME/bin${PATH:+:${PATH}}
-alias my="$MYSQL_HOME/bin/mysql -uroot"
-
 # tmux
 alias t='tmux list-sessions'
 alias ta='tmux attach -t Jinghui || tmux new-session -s Jinghui'
