@@ -50,7 +50,7 @@ cd $MYSQL_HOME/mysql-5.7.26 && \
         -DWITH_READLINE=1 \
         -DMYSQL_USER=mysql \
         -DWITH_SSL=yes && \
-  make && make install
+  make -j 8 && make install
 
 
 logi "Initialize mysql database"
