@@ -107,5 +107,13 @@ cp $MYSQL_HOME/bld/support-files/mysql.server /etc/init.d/mysql.server &&
 logi "Starting mysqld service ..."
 service mysql.server start
 
+cat >> /etc/rc.d/rc.local << EOF
+################################################################################
+# mysql
+################################################################################
+service mysql.server start
+EOF
+chmod +x /etc/rc.d/rc.local
+
 
 logi "Please login with: $MYSQL_HOME/bin/mysql -uroot"
