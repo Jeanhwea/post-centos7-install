@@ -21,7 +21,7 @@ loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
 runw() { sh -c "$*" | while read line; do echo -e "${CLRYLW}$line${CLRRST}"; done; }
 
 runw 'df -h'
-logi "Allocate ${TOTALMEM}M Memory for oracle."
+logi "Allocate Memory ${ORCLMEM}M of ${TOTALMEM}M for oracle database."
 runw 'free'
 
 mkdir -p /media/cdrom
