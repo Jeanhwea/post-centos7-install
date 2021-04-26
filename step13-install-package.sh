@@ -1,5 +1,5 @@
 USERNAME=admin
-PACKAGES=~$USERNAME/download/packages
+PACKAGES=~admin/download/packages
 
 ################################################################################
 # bash completion
