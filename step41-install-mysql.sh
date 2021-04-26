@@ -64,7 +64,7 @@ if [ -f /etc/my.cnf ] && [ ! -f /etc/my.cnf.1 ]; then
   mv /etc/my.cnf /etc/my.cnf.1
 fi
 
-cat >> /etc/profile << EOF
+cat >> /etc/my.cnf << EOF
 [mysqld]
 basedir   = $MYSQL_HOME
 datadir   = $MYSQL_HOME/data
