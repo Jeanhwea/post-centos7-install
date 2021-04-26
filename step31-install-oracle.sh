@@ -2,8 +2,6 @@ HERE=`cd $(dirname $0); pwd`
 USERNAME=admin
 ISODIR=~$USERNAME/download/iso
 INSTALLER=/media/cdrom/database/runInstaller
-SYSUSER=${SYSUSER:="system"}
-SYSPASS=${SYSPASS:="oracle"}
 TOTALMEM=$(grep MemTotal /proc/meminfo | awk '{print $2}')
 ORCLMEM=$(expr $TOTALMEM / 2560)
 
