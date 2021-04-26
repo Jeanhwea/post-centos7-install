@@ -73,12 +73,13 @@ pid-file  = $MYSQL_HOME/mysqld.pid
 log-error = $MYSQL_HOME/error.log
 
 # Disabling symbolic-links is recommended to prevent assorted security risks
-symbolic-links       = 0
-user                 = mysql
-bind-address         = 0.0.0.0
-character-set-server = utf8mb4
-collation-server     = utf8mb4_unicode_ci
-init-connect         = 'SET NAMES utf8mb4'
+symbolic-links                  = 0
+user                            = mysql
+bind-address                    = 0.0.0.0
+character-set-server            = utf8mb4
+collation-server                = utf8mb4_unicode_ci
+init-connect                    = 'SET NAMES utf8mb4'
+explicit_defaults_for_timestamp = true
 
 # skip-grant-tables to reset root password
 # skip-grant-tables
