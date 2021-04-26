@@ -1,6 +1,6 @@
 # 配置 ssh key 并上传文件
 export RIP=192.168.0.159
-ssh-copy-id admin@$RIP && scp -r download admin@${RIP}:~
+ssh-copy-id admin@$RIP && scp -r download admin@$RIP:~
 
 tar xzvf ~/download/packages/id_rsa_sr650.tar.gz
 
