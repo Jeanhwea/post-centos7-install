@@ -24,7 +24,7 @@ else
 fi
 
 if [ ! -f /media/cdrom/repodata/repomd.xml ]; then
-  loge "Error: mount centos iso first!"
+  loge "Error: cannot found any repository data!"
   exit 2
 fi
 cd /etc/yum.repos.d && ls *.repo | xargs -I {} mv {} {}.bak
