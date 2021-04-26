@@ -127,10 +127,7 @@ export PATH=$MYSQL_HOME/bin${PATH:+:${PATH}}
 alias my="$MYSQL_HOME/bin/mysql -uroot"
 EOF
 
-
 read -d '' -r MY_CHEATSHEET_STR << EOF
-Cheatsheet :)
-
 -- Login with:
 
   $MYSQL_HOME/bin/mysql -uroot
@@ -150,4 +147,5 @@ flush privileges;
 
 EOF
 
-logw "$MY_CHEATSHEET_STR"
+logw "Cheatsheet :)"
+echo "$MY_CHEATSHEET_STR"
