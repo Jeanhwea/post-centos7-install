@@ -57,12 +57,12 @@ cd $MYSQL_HOME && \
         -DWITH_SSL=yes && \
   make -j 8 && make install
 
-
-logi "Initializing Database ..."
 if [ -f /etc/my.cnf ] && [ ! -f /etc/my.cnf.1 ]; then
   logw "Backup /etc/my.cnf"
   mv /etc/my.cnf /etc/my.cnf.1
 fi
+
+logi "Initializing Database with configuration ..."
 
 cat >> /etc/my.cnf << EOF
 [mysqld]
@@ -88,12 +88,14 @@ explicit-defaults-for-timestamp = true
 skip-character-set-client-handshake = true
 
 [mysql]
-socket    = $MYSQL_HOME/mysql.sock
+socket                = $MYSQL_HOME/mysql.sock
 default-character-set = utf8mb4
 
 [client]
 default-character-set = utf8mb4
 EOF
+
+cat /etc/my.cnf
 
 chown mysql:mysql -R $MYSQL_HOME && \
   cd $MYSQL_HOME && \
