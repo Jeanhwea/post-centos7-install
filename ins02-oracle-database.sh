@@ -20,7 +20,7 @@ for script in $(find "$HERE" -maxdepth 1 -name 'step3*.sh' | sort); do
   [ "$?" != "0" ] && exit 1
 done
 
-su oracle -c "cd /u01/app/oracle/oradata && mkdir mes && mkdir spot"
+su - oracle -c "cd /u01/app/oracle/oradata && mkdir mes && mkdir spot"
 [ "$?" != "0" ] && exit 1
 
 for query in $(find "$HERE/queries" -maxdepth 1 -name '*.sql' | sort); do
