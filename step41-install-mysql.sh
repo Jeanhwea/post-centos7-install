@@ -128,4 +128,26 @@ alias my="$MYSQL_HOME/bin/mysql -uroot"
 EOF
 
 
-logi "Please login with: $MYSQL_HOME/bin/mysql -uroot"
+read -d '' -r MY_CHEATSHEET_STR << EOF
+-- Cheatsheet :)
+
+-- Login with:
+
+  $MYSQL_HOME/bin/mysql -uroot
+
+-- Create database and user using:
+
+CREATE DATABASE test01 DEFAULT CHARACTER SET UTF8MB4 COLLATE UTF8MB4_GENERAL_CI;
+CREATE USER 'test01'@'%' IDENTIFIED BY 'test01';
+GRANT ALL PRIVILEGES ON test01.* TO 'test01'@'%';
+FLUSH PRIVILEGES;
+
+-- or Make root login remote using:
+
+SET PASSWORD = PASSWORD('root');
+UPDATE USER SET HOST = '%' WHERE USER = 'root';
+FLUSH PRIVILEGES;
+
+EOF
+
+logi "$MY_CHEATSHEET_STR"
