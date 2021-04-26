@@ -2,6 +2,17 @@ HERE=`cd $(dirname $0); pwd`
 USERNAME=admin
 ISODIR=~$USERNAME/download/iso
 
+CLRRED="\033[31m"
+CLRGRN="\033[32m"
+CLRYLW="\033[33m"
+CLRBLU="\033[34m"
+CLRMGA="\033[35m"
+CLRRST="\033[0m"
+
+logi() { echo -e "$(date +'%F %T : ') ${CLRGRN}$*${CLRRST}"; }
+logw() { echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}"; }
+loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
+
 ################################################################################
 # setup local iso package repository
 ################################################################################
@@ -13,7 +24,7 @@ else
 fi
 
 if [ ! -f /media/cdrom/repodata/repomd.xml ]; then
-  echo "Error: mount centos iso first!"
+  loge "Error: mount centos iso first!"
   exit 2
 fi
 cd /etc/yum.repos.d && ls *.repo | xargs -I {} mv {} {}.bak

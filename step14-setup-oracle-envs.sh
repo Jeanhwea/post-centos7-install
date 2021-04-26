@@ -5,7 +5,6 @@ STR_HOSTADDR=$(hostname -I | awk '{ print $1 }')
 # /etc/hosts
 ################################################################################
 cat >> /etc/hosts <<EOF
-# 192.168.0.131 hostname hostname.localdomain
 $STR_HOSTADDR $STR_HOSTNAME
 EOF
 
