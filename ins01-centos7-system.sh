@@ -15,9 +15,11 @@ loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
 for script in $(find "$HERE" -maxdepth 1 -name 'step1*.sh' | sort); do
   logi "Execute script $script"
   su - root -c "$script"
+  [ "$?" != "0" ] && exit 1
 done
 
 for script in $(find "$HERE" -maxdepth 1 -name 'step2*.sh' | sort); do
   logi "Execute script $script"
   su - $USERNAME -c "$script"
+  [ "$?" != "0" ] && exit 1
 done
