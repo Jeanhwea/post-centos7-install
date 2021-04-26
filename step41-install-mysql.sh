@@ -129,7 +129,7 @@ EOF
 
 
 read -d '' -r MY_CHEATSHEET_STR << EOF
--- Cheatsheet :)
+Cheatsheet :)
 
 -- Login with:
 
@@ -150,4 +150,4 @@ flush privileges;
 
 EOF
 
-logi "$MY_CHEATSHEET_STR"
+logw "$MY_CHEATSHEET_STR"
