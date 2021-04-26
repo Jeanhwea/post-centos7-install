@@ -20,14 +20,14 @@ if [ ! -f $PACKAGES/mysql-5.7.26.tar.gz ]; then
 fi
 
 logi "Extract package to $MYSQL_HOME"
+groupadd mysql && \
+  useradd -r -g mysql -s /bin/false mysql
+
 cd /usr/local && \
   tar xzf $PACKAGES/mysql-5.7.26.tar.gz && \
   tar xzf $PACKAGES/mysql-boost-5.7.26.tar.gz && \
   chown -R mysql:mysql mysql-5.7.26 && \
   ln -s mysql-5.7.26 mysql
-
-groupadd mysql && \
-  useradd -r -g mysql -s /bin/false mysql
 
 mkdir -p $MYSQL_HOME/data && \
   chown -R mysql:mysql $MYSQL_HOME/data
