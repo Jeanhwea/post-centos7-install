@@ -13,8 +13,8 @@ logi() { echo -e "$(date +'%F %T : ') ${CLRGRN}$*${CLRRST}"; }
 logw() { echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}"; }
 loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
 
-PZURL=$(grep PEIZHI_URL /etc/profile)
-if [ "$PZURL" != "" ]; then
+CONFLINE=$(grep PEIZHI_URL /etc/profile)
+if [ "$CONFLINE" != "" ]; then
   loge "Error: already initialize system config."
   exit 1
 fi
