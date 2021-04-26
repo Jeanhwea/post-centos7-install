@@ -30,7 +30,7 @@ mkdir -p $MYSQL_HOME/data && \
 
 logi "Build and install mysql"
 cd $MYSQL_HOME/mysql-5.7.26 && \
-  mkdir build && cd build && \
+  mkdir bld && cd bld && \
   cmake .. \
         -DCMAKE_INSTALL_PREFIX=$MYSQL_HOME \
         -DMYSQL_DATADIR=$MYSQL_HOME/data \
@@ -89,13 +89,13 @@ EOF
 
 chown mysql:mysql -R $MYSQL_HOME && \
   cd $MYSQL_HOME && \
-  ./bin/mysqld --initialize-insecure --user=mysql \
+  ./bin/mysqld --user=mysql \
+               --initialize-insecure \
                --basedir=$MYSQL_HOME \
                --datadir=$MYSQL_HOME/data && \
   ./bin/mysql_ssl_rsa_setup --datadir=$MYSQL_HOME/data
 
-cd $MYSQL_HOME && \
-  support-files/mysql.server /etc/init.d/mysql.server &&
+cp $MYSQL_HOME/bld/support-files/mysql.server /etc/init.d/mysql.server &&
   chmod +x /etc/init.d/mysql.server
 
 
