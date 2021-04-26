@@ -14,12 +14,17 @@ logi() { echo -e "$(date +'%F %T : ') ${CLRGRN}$*${CLRRST}"; }
 logw() { echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}"; }
 loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
 
+if [ ! -f $PACKAGES/mysql-5.7.26.tar.gz ]; then
+  loge "Error: $PACKAGES/mysql-5.7.26.tar.gz not found!"
+  exit 2
+fi
 
 logi "Extract package to $MYSQL_HOME"
-mkdir -p $MYSQL_HOME && \
-  cd $MYSQL_HOME && \
+cd /usr/local && \
   tar xzf $PACKAGES/mysql-5.7.26.tar.gz && \
-  tar xzf $PACKAGES/mysql-boost-5.7.26.tar.gz
+  tar xzf $PACKAGES/mysql-boost-5.7.26.tar.gz && \
+  chown -R mysql:mysql mysql-5.7.26 && \
+  ln -s mysql-5.7.26 mysql
 
 groupadd mysql && \
   useradd -r -g mysql -s /bin/false mysql
@@ -29,7 +34,7 @@ mkdir -p $MYSQL_HOME/data && \
 
 
 logi "Build and install mysql"
-cd $MYSQL_HOME/mysql-5.7.26 && \
+cd $MYSQL_HOME && \
   mkdir bld && cd bld && \
   cmake .. \
         -DCMAKE_INSTALL_PREFIX=$MYSQL_HOME \
@@ -44,7 +49,7 @@ cd $MYSQL_HOME/mysql-5.7.26 && \
         -DWITH_MEMORY_STORAGE_ENGINE=1 \
         -DWITH_PARTITION_STORAGE_ENGINE=1 \
         -DDOWNLOAD_BOOST=0 \
-        -DWITH_BOOST=$MYSQL_HOME/mysql-5.7.26/boost/boost_1_59_0 \
+        -DWITH_BOOST=$MYSQL_HOME/boost/boost_1_59_0 \
         -DENABLED_LOCAL_INFILE=1 \
         -DMYSQL_TCP_PORT=3306 \
         -DWITH_READLINE=1 \
