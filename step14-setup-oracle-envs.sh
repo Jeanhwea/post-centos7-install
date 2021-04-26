@@ -28,7 +28,7 @@ echo 'redhat-7' > /etc/redhat-release
 groupadd oinstall && \
   groupadd dba && \
   groupadd oper && \
-  useradd -r -g oinstall -G dba,oper -s /bin/false oracle
+  useradd -g oinstall -G dba,oper oracle
 
 echo system | passwd --stdin oracle
 
