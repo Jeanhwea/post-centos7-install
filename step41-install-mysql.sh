@@ -17,9 +17,10 @@ loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
 
 logi "Extract package to $MYSQL_HOME"
 mkdir -p $MYSQL_HOME && \
-  cd $MYSQL_HOME && \
+  cd /tmp && \
   tar xzvf $PACKAGES/mysql-5.7.26.tar.gz && \
-  tar xzvf $PACKAGES/mysql-boost-5.7.26.tar.gz
+  tar xzvf $PACKAGES/mysql-boost-5.7.26.tar.gz && \
+  mv /tmp/mysql-5.7.26 $MYSQL_HOME
 
 groupadd mysql && \
   useradd -r -g mysql -s /bin/false mysql
