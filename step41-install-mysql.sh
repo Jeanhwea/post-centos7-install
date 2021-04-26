@@ -143,10 +143,10 @@ GRANT ALL PRIVILEGES ON test01.* TO 'test01'@'%';
 FLUSH PRIVILEGES;
 
 -- or Make root login remote using:
-
-SET PASSWORD = PASSWORD('root');
-UPDATE USER SET HOST = '%' WHERE USER = 'root';
-FLUSH PRIVILEGES;
+use mysql;
+set password = password('root');
+update user set host = '%' where user = 'root';
+flush privileges;
 
 EOF
 
