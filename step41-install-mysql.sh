@@ -75,11 +75,13 @@ log-error = $MYSQL_HOME/error.log
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links                  = 0
 user                            = mysql
+port                            = 3306
 bind-address                    = 0.0.0.0
+max-connections                 = 1000
 character-set-server            = utf8mb4
 collation-server                = utf8mb4_unicode_ci
 init-connect                    = 'SET NAMES utf8mb4'
-explicit_defaults_for_timestamp = true
+explicit-defaults-for-timestamp = true
 
 # skip-grant-tables to reset root password
 # skip-grant-tables
