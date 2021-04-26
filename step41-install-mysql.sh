@@ -19,7 +19,7 @@ if [ ! -f $PACKAGES/mysql-5.7.26.tar.gz ]; then
   exit 2
 fi
 
-logi "Extract package to $MYSQL_HOME"
+logi "Extract package to $MYSQL_HOME ..."
 groupadd mysql && \
   useradd -r -g mysql -s /bin/false mysql
 
@@ -33,7 +33,7 @@ mkdir -p $MYSQL_HOME/data && \
   chown -R mysql:mysql $MYSQL_HOME/data
 
 
-logi "Build and install mysql"
+logi "Configuring, Building and Install ..."
 cd $MYSQL_HOME && \
   mkdir bld && cd bld && \
   cmake .. \
@@ -58,7 +58,7 @@ cd $MYSQL_HOME && \
   make -j 8 && make install
 
 
-logi "Initialize mysql database"
+logi "Initializing Database ..."
 if [ -f /etc/my.cnf ] && [ ! -f /etc/my.cnf.1 ]; then
   logw "Backup /etc/my.cnf"
   mv /etc/my.cnf /etc/my.cnf.1
@@ -104,7 +104,7 @@ cp $MYSQL_HOME/bld/support-files/mysql.server /etc/init.d/mysql.server &&
   chmod +x /etc/init.d/mysql.server
 
 
-logi "Starting mysql service"
+logi "Starting mysqld service ..."
 service mysql.server start
 
 
