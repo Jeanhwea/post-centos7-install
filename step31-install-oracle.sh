@@ -1,6 +1,6 @@
 HERE=`cd $(dirname $0); pwd`
 USERNAME=admin
-ISODIR=~$USERNAME/download/iso
+ISODIR=~admin/download/iso
 INSTALLER=/media/cdrom/database/runInstaller
 TOTALMEM=$(grep MemTotal /proc/meminfo | awk '{print $2}')
 ORCLMEM=$(expr $TOTALMEM / 2560)

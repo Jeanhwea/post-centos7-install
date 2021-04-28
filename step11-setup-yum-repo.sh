@@ -1,6 +1,6 @@
 HERE=`cd $(dirname $0); pwd`
 USERNAME=admin
-ISODIR=~$USERNAME/download/iso
+ISODIR=~admin/download/iso
 
 CLRRED="\033[31m"
 CLRGRN="\033[32m"
