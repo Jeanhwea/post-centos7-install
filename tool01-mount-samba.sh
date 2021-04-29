@@ -20,7 +20,7 @@ logw() { echo -e "$(date +'%F %T : ') ${CLRYLW}$*${CLRRST}"; }
 loge() { echo -e "$(date +'%F %T : ') ${CLRRED}$*${CLRRST}"; }
 
 mount_windows_share () {
-  [ -d $LOCALDIR ] && mkdir -p $LOCALDIR
+  [ ! -d $LOCALDIR ] && mkdir -p $LOCALDIR
 
   MOUNT_STR=$(mount | grep "$LOCALDIR")
   [ "$MOUNT_STR" == "" ] && \
