@@ -24,11 +24,11 @@ mount_windows_share () {
 
   MOUNT_STR=$(mount | grep "$LOCALDIR")
   [ "$MOUNT_STR" == "" ] && \
-    mount -t cifs //$SAMHOST/$SAMGID $LOCALDIR \
+    mount -t cifs //$SAMHOST/$SAMPATH $LOCALDIR \
           -o username=$SAMUSER,password="${SAMPASS}",rw,nounix,iocharset=utf8,uid=$SAMUID,gid=$SAMGID
 
   MOUNT_RES=$(mount | grep "$LOCALDIR")
-  logi "MOUNT_RES"
+  logi "$MOUNT_RES"
 }
 
 ################################################################################
