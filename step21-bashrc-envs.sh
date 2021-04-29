@@ -38,6 +38,8 @@ EOF
 # add without environment substitute
 cat >> $CONFFILE <<\EOF
 # add bash history size
+export HISTFILESIZE=99999
+export HISTSIZE=99999
 alias down='find . -maxdepth 3 -name sc | xargs -I {} bash -c "{} s"'
 alias db='rlwrap sqlplus bamtri_mes/bamtri_mes'
 alias de='sqlplus -S bamtri_mes/bamtri_mes'
