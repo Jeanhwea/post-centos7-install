@@ -4,6 +4,25 @@ ssh-copy-id admin@$RIP && scp -r download admin@$RIP:~
 
 tar xzvf ~/download/packages/id_rsa_sr650.tar.gz
 
+# samba 文件共享
+sudo smbclient -L 192.168.0.201 -U Administrator
+Enter SAMBA\Administrator's password:
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+        ADMIN$          Disk      远程管理
+        C$              Disk      默认共享
+        D$              Disk      默认共享
+        IPC$            IPC       远程 IPC
+        print$          Disk      打印机驱动程序
+        开发服务器共享 Disk
+Reconnecting with SMB1 for workgroup listing.
+do_connect: Connection to 192.168.0.201 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+Failed to connect with SMB1 -- no workgroup available
+
+sudo mkdir /mnt/share
+
+sudo mount -t cifs -o username=Administrator,password='asdzxc1234!@#$',rw,nounix,iocharset=utf8,uid=1000,gid=1000 //192.168.0.201/开发服务器共享 /mnt/share
 
 # 修改主机名
 hostnamectl set-hostname c114.localadmin
