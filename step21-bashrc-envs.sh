@@ -13,8 +13,14 @@ CLRRST="\033[0m"
 ################################################################################
 # Detect alert level.
 ################################################################################
-CLRHOST=$CLRRED
-if [[ "$HOSTADDR" =~ ^192.168.[0-9]+.[0-9]+$ ]]; then
+CLRHOST=$CLRMGA
+if [[ "$HOSTADDR" =~ ^172.17.17.2[2-9][0-9]$ ]]; then
+  CLRHOST=$CLRRED
+fi
+if [[ "$HOSTADDR" =~ ^172.17.16.[0-9]+$ ]]; then
+  CLRHOST=$CLRRED
+fi
+if [[ "$HOSTADDR" =~ ^192.168.0.[0-9]+$ ]]; then
   CLRHOST=$CLRGRN
 fi
 
