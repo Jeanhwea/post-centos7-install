@@ -17,7 +17,7 @@ CLRHOST=$CLRGRN
 if [[ "$HOSTADDR" =~ ^172.17.17.2[2-5][0-9]$ ]]; then
   CLRHOST=$CLRRED
 fi
-if [[ "$HOSTADDR" =~ ^172.17.16.[0-9]+$ ]]; then
+if [[ "$HOSTADDR" =~ ^172.16.10.[0-9]+$ ]]; then
   CLRHOST=$CLRRED
 fi
 if [[ "$HOSTADDR" =~ ^192.168.0.14[1-9]+$ ]]; then
