@@ -41,7 +41,7 @@ cat >> $CONFFILE <<\EOF
 export HISTFILESIZE=99999
 export HISTSIZE=99999
 alias down='find . -maxdepth 3 -name sc | xargs -I {} bash -c "{} s"'
-alias loc='echo $USER@$(hostname -I | awk ''{print $1}''):$PWD'
+alias loc='echo $USER@$(hostname -I | awk ''''{print $1}''''):$PWD'
 alias db='rlwrap sqlplus bamtri_mes/bamtri_mes'
 alias de='sqlplus -S bamtri_mes/bamtri_mes'
 alias dr='sqlplus -S bamtri_mes/bamtri_mes < '
