@@ -8,6 +8,7 @@ CLRGRN="\033[32m"
 CLRYLW="\033[33m"
 CLRBLU="\033[34m"
 CLRMGA="\033[35m"
+CLRCYN="\033[36m"
 CLRRST="\033[0m"
 
 ################################################################################
@@ -38,7 +39,7 @@ echo "# Last updated at $(date +'%Y-%m-%d'), DO NOT ADD SCRIPT UNDER THIS LINE!!
 ################################################################################
 # add with environment substitute
 cat >> $CONFFILE << EOF
-export PS1='${CLRGRN}\u${CLRRST}@${CLRHOST}\h${CLRRST}:${CLRBLU}\w${CLRRST} \$ '
+export PS1='${CLRHOST}\u@\h${CLRRST}:${CLRCYN}\w${CLRRST} \$ '
 EOF
 
 # add without environment substitute
