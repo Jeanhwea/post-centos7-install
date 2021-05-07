@@ -44,10 +44,15 @@ EOF
 
 # add without environment substitute
 cat >> $CONFFILE <<\EOF
+# apply global profile
+[ -f /etc/profile ] && source /etc/profile
+
 # add bash history size
 export HISTFILESIZE=99999
 export HISTSIZE=99999
 # export PROMPT_DIRTRIM=2
+
+# alias
 alias down='find . -maxdepth 3 -name sc | xargs -I {} bash -c "{} s"'
 alias loc='echo $USER@$(hostname -I | awk '"'{print \$1}'"'):$PWD'
 alias db='rlwrap sqlplus bamtri_mes/bamtri_mes'
