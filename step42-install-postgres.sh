@@ -49,7 +49,7 @@ su - postgres -c "$PGHOME/bin/initdb -E UTF8 -D $PGDATA"
 # fi
 
 
-logi "Starting mysqld service ..."
+logi "Starting postgres server ..."
 
 su - postgres -c "$PGHOME/bin/pg_ctl -D $PGDATA -l logfile start"
 
