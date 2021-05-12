@@ -44,9 +44,15 @@ logi "Initializing Database ..."
 
 su - postgres -c "$PGHOME/bin/initdb -E UTF8 -D $PGDATA"
 
-# if [ -f /etc/my.cnf ] && [ ! -f /etc/my.cnf.1 ]; then
-#   logw "Backup /etc/my.cnf"
-# fi
+if [ -f $PGDATA/postgresql.conf ]; then
+  sed -i "/listen_addresses/alisten_addresses = '*'" $PGDATA/postgresql.conf
+  sed -i "s/max_connections/#max_connections/"       $PGDATA/postgresql.conf
+  sed -i "/max_connections/amax_connections = 2000"  $PGDATA/postgresql.conf
+fi
+
+if [ -f $PGDATA/pg_hba.conf ]; then
+  sed -i "/IPv4 local connections/ahost all all 0.0.0.0/0 md5" $PGDATA/pg_hba.conf
+fi
 
 
 logi "Starting postgres server ..."
