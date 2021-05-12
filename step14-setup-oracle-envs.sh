@@ -115,7 +115,7 @@ kernel.shmall = 18446744073692774399
 # 进程之间通信消息大小的最大值
 kernel.msgmax = 65536
 # 信号量参数： semmsl semmns semopm semmni
-kernel.sem = 250 32000 100 128
+kernel.sem = 4096 32000 100 4096
 
 # 文件句柄数量限制
 fs.aio-max-nr = 1048576
