@@ -47,7 +47,7 @@ su - postgres -c "$PGHOME/bin/initdb -E UTF8 -D $PGDATA"
 if [ -f $PGDATA/postgresql.conf ]; then
   sed -i "/listen_addresses/alisten_addresses = '*'" $PGDATA/postgresql.conf
   sed -i "s/max_connections/#max_connections/"       $PGDATA/postgresql.conf
-  sed -i "/max_connections/amax_connections = 2000"  $PGDATA/postgresql.conf
+  sed -i "/max_connections/amax_connections = 1000"  $PGDATA/postgresql.conf
 fi
 
 if [ -f $PGDATA/pg_hba.conf ]; then
@@ -57,13 +57,13 @@ fi
 
 logi "Starting postgres server ..."
 
-su - postgres -c "$PGHOME/bin/pg_ctl -D $PGDATA -l logfile start"
+su - postgres -c "$PGHOME/bin/pg_ctl -D $PGDATA -l $PGDATA/logfile start"
 
 cat >> /etc/rc.d/rc.local << EOF
 ################################################################################
 # postgres
 ################################################################################
-su - postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start"
+su - postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/data/logfile start"
 EOF
 chmod +x /etc/rc.d/rc.local
 
