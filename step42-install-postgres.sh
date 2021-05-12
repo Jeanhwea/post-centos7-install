@@ -22,7 +22,7 @@ fi
 
 logi "Extract package to $PGHOME ..."
 groupadd postgres && \
-  useradd -r -g postgres postgres
+  useradd -r -g postgres -s /bin/false postgres
 
 cd /usr/local && \
   tar xzf $PACKAGES/postgresql-9.6.19.tar.gz && \
@@ -36,14 +36,13 @@ mkdir -p $PGHOME/data && \
 logi "Configuring, Building and Install ..."
 cd $PGHOME && \
   ./configure --prefix=$PGHOME && \
-  make world && \
+  make -j 8 world && \
   make install-world
 
 
 logi "Initializing Database ..."
 
-su - postgres -c "$PGHOME/bin/initdb -E UTF8 -D $PGDATA"
-su - postgres -c "$PGHOME/bin/pg_ctl -D $PGDATA -l logfile start"
+su postgres -c "$PGHOME/bin/initdb -E UTF8 -D $PGDATA"
 
 # if [ -f /etc/my.cnf ] && [ ! -f /etc/my.cnf.1 ]; then
 #   logw "Backup /etc/my.cnf"
@@ -51,13 +50,14 @@ su - postgres -c "$PGHOME/bin/pg_ctl -D $PGDATA -l logfile start"
 
 
 logi "Starting mysqld service ..."
-service mysql.server start
+
+su postgres -c "$PGHOME/bin/pg_ctl -D $PGDATA -l logfile start"
 
 cat >> /etc/rc.d/rc.local << EOF
 ################################################################################
 # postgres
 ################################################################################
-su - postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start"
+su postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start"
 EOF
 chmod +x /etc/rc.d/rc.local
 
@@ -79,8 +79,7 @@ EOF
 read -d '' -r PG_CHEATSHEET_STR << EOF
 -- Login with:
 
-  sudo su - postgres
-  $PGHOME/bin/pgsql
+  /usr/local/pgsql/bin/psql
 
 -- Create database and user using:
 
