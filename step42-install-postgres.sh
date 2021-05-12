@@ -104,6 +104,14 @@ read -d '' -r PG_CHEATSHEET_STR << EOF
 
   PGUSER=postgres PGPORT=5432 /usr/local/pgsql/bin/psql
 
+  Something like:
+    postgres=# \c postgres user01
+    You are now connected to database "postgres" as user "user01".
+    postgres=> \password
+    Enter new password:
+    Enter it again:
+    postgres=>
+
 EOF
 
 logw "Cheatsheet :)"
