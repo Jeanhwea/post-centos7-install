@@ -99,7 +99,7 @@ read -d '' -r PG_CHEATSHEET_STR << EOF
 
 -- Create Database using:
 
-  /usr/local/pgsql/bin/createdb -e -E UTF8 -O user01 db01
+  PGUSER=postgres PGPORT=5432 /usr/local/pgsql/bin/createdb -e -E UTF8 -O user01 db01
 
 -- Change User Password
 
