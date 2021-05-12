@@ -22,7 +22,7 @@ fi
 
 logi "Extract package to $PGHOME ..."
 groupadd postgres && \
-  useradd -r -g postgres -s /bin/false postgres
+  useradd -g postgres postgres
 
 cd /usr/local && \
   tar xzf $PACKAGES/postgresql-9.6.19.tar.gz && \
@@ -42,7 +42,7 @@ cd $PGHOME && \
 
 logi "Initializing Database ..."
 
-su postgres -c "$PGHOME/bin/initdb -E UTF8 -D $PGDATA"
+su - postgres -c "$PGHOME/bin/initdb -E UTF8 -D $PGDATA"
 
 # if [ -f /etc/my.cnf ] && [ ! -f /etc/my.cnf.1 ]; then
 #   logw "Backup /etc/my.cnf"
@@ -51,13 +51,13 @@ su postgres -c "$PGHOME/bin/initdb -E UTF8 -D $PGDATA"
 
 logi "Starting mysqld service ..."
 
-su postgres -c "$PGHOME/bin/pg_ctl -D $PGDATA -l logfile start"
+su - postgres -c "$PGHOME/bin/pg_ctl -D $PGDATA -l logfile start"
 
 cat >> /etc/rc.d/rc.local << EOF
 ################################################################################
 # postgres
 ################################################################################
-su postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start"
+su - postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start"
 EOF
 chmod +x /etc/rc.d/rc.local
 
