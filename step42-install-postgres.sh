@@ -79,12 +79,12 @@ EOF
 read -d '' -r PG_CHEATSHEET_STR << EOF
 -- Login with:
 
-  /usr/local/pgsql/bin/psql
+  PGUSER=postgres PGPORT=5432 /usr/local/pgsql/bin/psql
 
 -- Create database and user using:
 
-  /usr/local/pgsql/bin/createdb -E UTF8 demo
-  /usr/local/pgsql/bin/psql demo
+  PGUSER=postgres PGPORT=5432 /usr/local/pgsql/bin/createdb -E UTF8 demo
+  PGUSER=postgres PGPORT=5432 /usr/local/pgsql/bin/psql demo
 
 EOF
 
