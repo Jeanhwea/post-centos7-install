@@ -48,10 +48,14 @@ if [ -f $PGDATA/postgresql.conf ]; then
   sed -i "/listen_addresses/alisten_addresses = '*'" $PGDATA/postgresql.conf
   sed -i "s/max_connections/#max_connections/"       $PGDATA/postgresql.conf
   sed -i "/max_connections/amax_connections = 1000"  $PGDATA/postgresql.conf
+  logw "$PGDATA/postgresql.conf"
+  cat $PGDATA/postgresql.conf
 fi
 
 if [ -f $PGDATA/pg_hba.conf ]; then
   sed -i "/IPv4 local connections/ahost all all 0.0.0.0/0 md5" $PGDATA/pg_hba.conf
+  logw "$PGDATA/pg_hba.conf"
+  cat $PGDATA/postgresql.conf
 fi
 
 
@@ -87,10 +91,18 @@ read -d '' -r PG_CHEATSHEET_STR << EOF
 
   PGUSER=postgres PGPORT=5432 /usr/local/pgsql/bin/psql
 
--- Create database and user using:
+-- Create User using:
 
-  PGUSER=postgres PGPORT=5432 /usr/local/pgsql/bin/createdb -E UTF8 demo
-  PGUSER=postgres PGPORT=5432 /usr/local/pgsql/bin/psql demo
+  PGUSER=postgres PGPORT=5432 /usr/local/pgsql/bin/createuser -e -d test01
+  PGUSER=postgres PGPORT=5432 /usr/local/pgsql/bin/createuser -e --interactive
+
+-- Create Database using:
+
+  /usr/local/pgsql/bin/createdb -e -E UTF8 -U test01 -W demo
+
+-- Change User Password
+
+  PGUSER=postgres PGPORT=5432 /usr/local/pgsql/bin/psql
 
 EOF
 
