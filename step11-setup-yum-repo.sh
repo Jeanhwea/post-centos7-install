@@ -54,5 +54,9 @@ yum install -y gcc gcc-c++ cmake automake zip unzip python3 python3-devel \
 # for mysql
 yum install -y cmake ncurses ncurses-devel bison bison-devel openssl openssl-devel
 
+# for openGauss
+yum install -y libaio-devel flex bison bison-devel ncurses-devel glibc-devel \
+    patch redhat-lsb-core readline-devel
+
 # for cuda install
 # yum install -y python* python3* mesa* freeglut* *glew*
