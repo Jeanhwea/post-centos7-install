@@ -115,7 +115,7 @@ read -d '' -r PG_CHEATSHEET_STR << EOF
 
   or
 
-    postgres=# alter user user01 PASSWORD '1234';
+    postgres=# alter user user01 password 'newpassword';
     ALTER ROLE
     postgres=#
 
