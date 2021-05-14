@@ -134,16 +134,17 @@ read -d '' -r MY_CHEATSHEET_STR << EOF
 
 -- Create database and user using:
 
-CREATE DATABASE test01 DEFAULT CHARACTER SET UTF8MB4 COLLATE UTF8MB4_GENERAL_CI;
-CREATE USER 'test01'@'%' IDENTIFIED BY 'test01';
-GRANT ALL PRIVILEGES ON test01.* TO 'test01'@'%';
-FLUSH PRIVILEGES;
+  create database test01 default character set utf8mb4 collate utf8mb4_general_ci;
+  create user 'test01'@'%' identified by 'test01';
+  grant all privileges on test01.* to 'test01'@'%';
+  flush privileges;
 
 -- or Make root login remote using:
-use mysql;
-set password = password('root');
-update user set host = '%' where user = 'root';
-flush privileges;
+
+  use mysql;
+  set password = password('root');
+  update user set host = '%' where user = 'root';
+  flush privileges;
 
 EOF
 
