@@ -38,7 +38,7 @@ yum makecache
 
 # common tools
 yum install -y net-tools vim tmux tree kernel-devel kernel-doc kernel-headers \
-    samba samba-client ntp
+    samba samba-client ntp rsync curl git
 
 # for oracle 11g install
 yum install -y binutils compat-libcap1 compat-libstdc++-33 gcc gcc-c++ glibc \
