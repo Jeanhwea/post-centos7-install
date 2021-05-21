@@ -88,8 +88,9 @@ explicit-defaults-for-timestamp = true
 skip-character-set-client-handshake = true
 
 [mysql]
-socket                = $MYSQL_HOME/mysql.sock
-default-character-set = utf8mb4
+socket                          = $MYSQL_HOME/mysql.sock
+prompt                          = '\u@\h [\d]> '
+default-character-set           = utf8mb4
 
 [client]
 default-character-set = utf8mb4
