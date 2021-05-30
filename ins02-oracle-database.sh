@@ -23,7 +23,7 @@ done
 su - oracle -c "cd /u01/app/oracle/oradata && mkdir mes && mkdir spot"
 [ "$?" != "0" ] && exit 1
 
-for query in $(find "$HERE/queries" -maxdepth 1 -name '*.sql' | sort); do
+for query in $(find "$HERE/queries" -maxdepth 1 -name 'ora-*.sql' | sort); do
   logi "Execute query $query"
   cat $query
   su - $USERNAME -c "sqlplus -S $SYSUSER/$SYSPASS < $query"
