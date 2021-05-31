@@ -21,6 +21,6 @@ done
 for query in $(find "$HERE/queries" -maxdepth 1 -name 'mysql*.sql' | sort); do
   logi "Execute query $query"
   cat $query
-  su - $USERNAME -c "/usr/local/mysql/bin/mysql -uroot < $query"
+  su - $USERNAME -c "/usr/local/mysql/bin/mysql -u root < $query"
   [ "$?" != "0" ] && exit 1
 done
