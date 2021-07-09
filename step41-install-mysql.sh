@@ -127,6 +127,7 @@ cat >> /etc/profile <<\EOF
 export MYSQL_HOME=/usr/local/mysql
 export PATH=$MYSQL_HOME/bin${PATH:+:${PATH}}
 alias my="$MYSQL_HOME/bin/mysql -uroot"
+alias mr="$MYSQL_HOME/bin/mysql -ubamtri -p'\''Bamtri625'\'' prod_mes < "
 EOF
 
 read -d '' -r MY_CHEATSHEET_STR << EOF
